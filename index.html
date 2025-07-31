@@ -1,44 +1,52 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Professionelle Drohnenaufnahmen für Events, Immobilien und mehr – Skycine.de" />
-  <title>Skycine – Luftaufnahmen mit Stil</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Skycine – Kontakt</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
   <header>
-    <h1>Skycine</h1>
+    <div class="logo">Skycine</div>
     <nav>
-      <a href="#leistungen">Leistungen</a>
       <a href="#kontakt">Kontakt</a>
+      <a href="#">Leistungen</a>
+      <a href="#">Portfolio</a>
     </nav>
   </header>
 
   <section class="hero">
-    <h2>Luftaufnahmen, die begeistern</h2>
-    <p>Professionelle Drohnenaufnahmen für Events, Immobilien und mehr.</p>
-    <a href="#kontakt" class="cta">Jetzt anfragen</a>
+    <h1>Du brauchst atemberaubende Luftaufnahmen?</h1>
+    <p>Dann nimm Kontakt auf – ich melde mich schnellstmöglich zurück.</p>
   </section>
 
-  <section id="leistungen">
-    <h3>Was ich anbiete</h3>
-    <ul>
-      <li>📸 Luftaufnahmen von Immobilien, Events & Natur</li>
-      <li>🎬 Videobearbeitung & Nachbearbeitung</li>
-      <li>🚁 Professionelles Drohnen-Equipment & genehmigter Betrieb</li>
-    </ul>
-  </section>
+  <section class="contact" id="kontakt">
+    <h2>Kontaktformular</h2>
+    <form action="mailto:kontakt@skycine.de" method="POST" enctype="text/plain">
+      <label for="name">Name*</label>
+      <input type="text" id="name" name="name" required>
 
-  <section id="kontakt">
-    <h3>Kontakt</h3>
-    <p>Interesse? Schreib mir einfach eine E-Mail an:</p>
-    <p><a href="mailto:kontakt@skycine.de">kontakt@skycine.de</a></p>
+      <label for="email">E-Mail*</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="anliegen">Nachricht*</label>
+      <textarea id="anliegen" name="anliegen" rows="6" required></textarea>
+
+      <button type="submit">Nachricht senden</button>
+    </form>
+
+    <div class="info">
+      <p><strong>E-Mail:</strong> <a href="mailto:kontakt@skycine.de">kontakt@skycine.de</a></p>
+      <p><strong>Telefon:</strong> auf Anfrage</p>
+      <p><strong>Social:</strong> Instagram | YouTube (bald)</p>
+    </div>
   </section>
 
   <footer>
-    <p>&copy; 2025 Skycine – Drohnenaufnahmen mit Stil</p>
+    &copy; 2025 Skycine – Luftaufnahmen mit Stil
   </footer>
+
 </body>
 </html>
