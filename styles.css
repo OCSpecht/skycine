@@ -1,100 +1,184 @@
-body {
+/* Grundlegendes Reset */
+* {
     margin: 0;
-    font-family: Arial, sans-serif;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    color: #222;
     line-height: 1.6;
-    color: #333;
+    background: #fff;
+}
+
+/* Layout */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 header {
-    background: #111;
-    color: white;
-    padding: 1em;
+    background: #000;
+    padding: 1em 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-header .logo {
+.logo {
     font-size: 1.5em;
+    color: #fff;
     font-weight: bold;
 }
 
+.logo span {
+    color: #1e90ff;
+}
+
 nav ul {
-    list-style: none;
     display: flex;
-    gap: 1em;
+    gap: 1.5em;
+    list-style: none;
 }
 
 nav a {
-    color: white;
+    color: #fff;
     text-decoration: none;
+    font-weight: 500;
 }
 
 .hero {
-    background: url('images/drohne1.jpg') no-repeat center center/cover;
+    background: url('images/hero.jpg') center/cover no-repeat;
+    height: 90vh;
+    position: relative;
     color: white;
-    padding: 6em 2em;
+}
+
+.hero .overlay {
+    background: rgba(0, 0, 0, 0.5);
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.hero-content {
     text-align: center;
+    width: 100%;
 }
 
-.hero .btn {
-    background: #007BFF;
-    color: white;
+.hero h1 {
+    font-size: 3em;
+    margin-bottom: 0.5em;
+}
+
+.hero p {
+    font-size: 1.2em;
+    margin-bottom: 1em;
+}
+
+.btn-primary {
+    background: #1e90ff;
+    color: #fff;
     padding: 0.8em 1.5em;
-    text-decoration: none;
+    border: none;
     border-radius: 5px;
-    display: inline-block;
-    margin-top: 1em;
+    font-size: 1em;
+    text-decoration: none;
+    cursor: pointer;
 }
 
-section {
-    padding: 4em 2em;
+.section {
+    padding: 5em 0;
 }
 
-.leistungen-container {
+.dark {
+    background: #f9f9f9;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 2em;
+    font-size: 2em;
+}
+
+.services {
     display: flex;
     flex-wrap: wrap;
     gap: 2em;
+    justify-content: center;
 }
 
-.leistung {
-    flex: 1 1 30%;
-    background: #f4f4f4;
+.service {
+    flex: 1 1 280px;
+    background: #fff;
     padding: 1em;
     border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    text-align: center;
 }
 
-.bilder img {
-    max-width: 100%;
-    height: auto;
+.service img {
+    width: 100%;
     border-radius: 8px;
-    margin: 1em 0;
+    margin-bottom: 1em;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5em;
+}
+
+.gallery img {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
 form {
     display: flex;
     flex-direction: column;
     gap: 1em;
+    max-width: 600px;
+    margin: 0 auto;
 }
 
 input, textarea {
     padding: 1em;
     font-size: 1em;
-    width: 100%;
-}
-
-button {
-    background: #007BFF;
-    color: white;
-    padding: 1em;
-    border: none;
-    cursor: pointer;
-    font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
 }
 
 footer {
-    background: #222;
+    background: #000;
     color: white;
     text-align: center;
-    padding: 1em;
+    padding: 2em 0;
+}
+
+.footer-content small {
+    display: block;
+    margin-top: 0.5em;
+    color: #aaa;
+}
+
+/* Responsiv */
+@media (max-width: 768px) {
+    .services {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .hero h1 {
+        font-size: 2em;
+    }
 }

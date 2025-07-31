@@ -3,67 +3,87 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Skycine.de – Luftaufnahmen & Drohnenservice</title>
-    <meta name="description" content="Professionelle Drohnenaufnahmen für Film, Werbung, Events & Immobilien. Skycine.de – Ihr Partner für beeindruckende Luftbilder.">
+    <title>Skycine.de – Drohnenaufnahmen in Kinoqualität</title>
+    <meta name="description" content="Luftaufnahmen für Immobilien, Filmproduktionen, Werbung & Events. Skycine.de – Ihr Drohnenpartner mit Kinoblick.">
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
-        <div class="logo">Skycine.de</div>
-        <nav>
-            <ul>
-                <li><a href="#leistungen">Leistungen</a></li>
-                <li><a href="#portfolio">Portfolio</a></li>
-                <li><a href="#kontakt">Kontakt</a></li>
-            </ul>
-        </nav>
+        <div class="container nav-container">
+            <div class="logo">Skycine<span>.de</span></div>
+            <nav>
+                <ul>
+                    <li><a href="#leistungen">Leistungen</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#kontakt">Kontakt</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
     <section class="hero">
-        <h1>Professionelle Drohnenaufnahmen</h1>
-        <p>Filmreife Luftbilder für Ihre Projekte – zuverlässig & kreativ.</p>
-        <a href="#kontakt" class="btn">Jetzt anfragen</a>
-    </section>
-
-    <section id="leistungen">
-        <h2>Unsere Leistungen</h2>
-        <div class="leistungen-container">
-            <div class="leistung">
-                <h3>Immobilien & Architektur</h3>
-                <p>Zeigen Sie Ihre Objekte von ihrer besten Seite mit hochwertigen Luftaufnahmen.</p>
-            </div>
-            <div class="leistung">
-                <h3>Events & Hochzeiten</h3>
-                <p>Halten Sie unvergessliche Momente aus der Vogelperspektive fest.</p>
-            </div>
-            <div class="leistung">
-                <h3>Film & Werbung</h3>
-                <p>Kreative Luftbilder für Ihre Produktion – in 4K und mit professionellem Schnitt.</p>
+        <div class="overlay">
+            <div class="container hero-content">
+                <h1>Hochwertige Drohnenaufnahmen in Kinoqualität</h1>
+                <p>Skycine.de liefert visuelle Erlebnisse aus der Luft – für Immobilien, Events und Filmproduktionen.</p>
+                <a href="#kontakt" class="btn-primary">Projekt starten</a>
             </div>
         </div>
     </section>
 
-    <section id="portfolio">
-        <h2>Portfolio</h2>
-        <div class="bilder">
-            <img src="images/drohne1.jpg" alt="Drohnenaufnahme Beispiel 1">
-            <img src="images/drohne2.jpg" alt="Drohnenaufnahme Beispiel 2">
+    <section id="leistungen" class="section">
+        <div class="container">
+            <h2>Unsere Leistungen</h2>
+            <div class="services">
+                <div class="service">
+                    <img src="images/service1.jpg" alt="Immobilienaufnahmen">
+                    <h3>Immobilien & Architektur</h3>
+                    <p>Steigern Sie den Verkaufswert mit professionellen Luftaufnahmen. Ideal für Exposés, Makler & Bauherren.</p>
+                </div>
+                <div class="service">
+                    <img src="images/service2.jpg" alt="Eventaufnahmen">
+                    <h3>Events & Hochzeiten</h3>
+                    <p>Erleben Sie unvergessliche Momente aus der Vogelperspektive. Ideal für private Feiern und Firmenevents.</p>
+                </div>
+                <div class="service">
+                    <img src="images/service2.jpg" alt="Filmproduktion">
+                    <h3>Film & Werbung</h3>
+                    <p>Wir liefern Cinematic-Aerials für TV, Werbung & Imagefilme – stabil, in 4K, auf Wunsch mit Schnitt.</p>
+                </div>
+            </div>
         </div>
     </section>
 
-    <section id="kontakt">
-        <h2>Kontakt</h2>
-        <p>Interesse an unseren Leistungen? Schreiben Sie uns!</p>
-        <form action="mailto:info@skycine.de" method="post" enctype="text/plain">
-            <input type="text" name="name" placeholder="Ihr Name" required>
-            <input type="email" name="email" placeholder="Ihre E-Mail" required>
-            <textarea name="nachricht" placeholder="Ihre Nachricht" required></textarea>
-            <button type="submit">Senden</button>
-        </form>
+    <section id="portfolio" class="section dark">
+        <div class="container">
+            <h2>Ausgewählte Projekte</h2>
+            <div class="gallery">
+                <img src="images/hero.jpg" alt="Projekt 1">
+                <img src="images/service1.jpg" alt="Projekt 2">
+                <img src="images/service2.jpg" alt="Projekt 3">
+            </div>
+        </div>
+    </section>
+
+    <section id="kontakt" class="section">
+        <div class="container">
+            <h2>Kontakt</h2>
+            <p>Sie haben Fragen oder möchten ein Projekt starten? Schreiben Sie uns!</p>
+            <form action="mailto:info@skycine.de" method="post" enctype="text/plain">
+                <input type="text" name="name" placeholder="Ihr Name" required>
+                <input type="email" name="email" placeholder="Ihre E-Mail" required>
+                <textarea name="nachricht" placeholder="Ihre Nachricht" required></textarea>
+                <button type="submit" class="btn-primary">Nachricht senden</button>
+            </form>
+        </div>
     </section>
 
     <footer>
-        <p>© 2025 Skycine.de – Drohnenaufnahmen & Luftbilder</p>
+        <div class="container footer-content">
+            <p>© 2025 Skycine.de – Drohnenaufnahmen mit Perspektive</p>
+            <small>Website gehostet über GitHub Pages</small>
+        </div>
     </footer>
 </body>
 </html>
