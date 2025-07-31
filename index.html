@@ -1,39 +1,69 @@
 <!DOCTYPE html>
 <html lang="de">
-<head>…</head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skycine.de – Luftaufnahmen & Drohnenservice</title>
+    <meta name="description" content="Professionelle Drohnenaufnahmen für Film, Werbung, Events & Immobilien. Skycine.de – Ihr Partner für beeindruckende Luftbilder.">
+    <link rel="stylesheet" href="styles.css">
+</head>
 <body>
-  <header> … Navigationsmenü … </header>
-  <section class="hero">
-    <h1>Skycine – Luftaufnahmen mit Stil</h1>
-    <p>Professionelle Drohnenaufnahmen & professionelle Videobearbeitung.</p>
-    <a href="kontakt.html" class="cta">Jetzt anfragen</a>
-  </section>
-  <section id="services">
-    <h2>Meine Leistungen</h2>
-    <div class="grid">
-      <a href="leistungen.html#immobilien">Immobilien</a>
-      <a href="leistungen.html#events">Events & Veranstaltungen</a>
-      <a href="leistungen.html#bearbeitung">Videobearbeitung</a>
-    </div>
-  </section>
-  <section id="vorteile">
-    <h2>Deine Vorteile mit Skycine</h2>
-    <ul>
-      <li>8K Luftbild- & Videotechnik</li>
-      <li>Long‑Range Reichweite & stabile Übertragung</li>
-      <li>Langflugzeit & Ersatzakkus</li>
-      <li>Zufriedenheitsgarantie</li>
-    </ul>
-  </section>
-  <section id="ablauf">
-    <h2>So funktioniert’s</h2>
-    <ol>
-      <li>Erstberatung</li>
-      <li>Konzepterstellung</li>
-      <li>Drohnenflug vor Ort</li>
-      <li>Nachbearbeitung & Datenübergabe</li>
-    </ol>
-  </section>
-  <footer>© 2025 Skycine</footer>
+    <header>
+        <div class="logo">Skycine.de</div>
+        <nav>
+            <ul>
+                <li><a href="#leistungen">Leistungen</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#kontakt">Kontakt</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Professionelle Drohnenaufnahmen</h1>
+        <p>Filmreife Luftbilder für Ihre Projekte – zuverlässig & kreativ.</p>
+        <a href="#kontakt" class="btn">Jetzt anfragen</a>
+    </section>
+
+    <section id="leistungen">
+        <h2>Unsere Leistungen</h2>
+        <div class="leistungen-container">
+            <div class="leistung">
+                <h3>Immobilien & Architektur</h3>
+                <p>Zeigen Sie Ihre Objekte von ihrer besten Seite mit hochwertigen Luftaufnahmen.</p>
+            </div>
+            <div class="leistung">
+                <h3>Events & Hochzeiten</h3>
+                <p>Halten Sie unvergessliche Momente aus der Vogelperspektive fest.</p>
+            </div>
+            <div class="leistung">
+                <h3>Film & Werbung</h3>
+                <p>Kreative Luftbilder für Ihre Produktion – in 4K und mit professionellem Schnitt.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="portfolio">
+        <h2>Portfolio</h2>
+        <div class="bilder">
+            <img src="images/drohne1.jpg" alt="Drohnenaufnahme Beispiel 1">
+            <img src="images/drohne2.jpg" alt="Drohnenaufnahme Beispiel 2">
+        </div>
+    </section>
+
+    <section id="kontakt">
+        <h2>Kontakt</h2>
+        <p>Interesse an unseren Leistungen? Schreiben Sie uns!</p>
+        <form action="mailto:info@skycine.de" method="post" enctype="text/plain">
+            <input type="text" name="name" placeholder="Ihr Name" required>
+            <input type="email" name="email" placeholder="Ihre E-Mail" required>
+            <textarea name="nachricht" placeholder="Ihre Nachricht" required></textarea>
+            <button type="submit">Senden</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>© 2025 Skycine.de – Drohnenaufnahmen & Luftbilder</p>
+    </footer>
 </body>
 </html>
