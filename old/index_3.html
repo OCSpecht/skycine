@@ -1,0 +1,1071 @@
+<!DOCTYPE html>
+<html lang="de" data-bs-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>skycine.de - Cinematische Drohnenaufnahmen Hamburg</title>
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Aleo:300,400,500,600,700,800,900&display=swap">
+  <link rel="stylesheet" href="assets/fonts/simple-line-icons.min.css">
+  <link rel="stylesheet" href="assets/css/Navbar-Right-Links-icons.css">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <!-- AOS Animation Library -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <!-- GLightbox for gallery lightbox -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css"/>
+  <style>
+    :root {
+      --brand-green: #00ff88;
+      --brand-green-dark: #00cc6a;
+      --brand-dark: #0a0a0a;
+      --brand-light: #ffffff;
+      --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      --gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+      --gradient-hero: linear-gradient(135deg, rgba(0,255,136,0.9) 0%, rgba(102,126,234,0.8) 100%);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html { 
+      scroll-behavior: smooth; 
+      overflow-x: hidden;
+    }
+    
+    body { 
+      padding-top: 80px; 
+      font-family: 'Aleo', serif; 
+      line-height: 1.7;
+      overflow-x: hidden;
+      background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+      background-attachment: fixed;
+    }
+
+    /* Floating particles background */
+    .particles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .particle {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background: rgba(0, 255, 136, 0.4);
+      border-radius: 50%;
+      animation: float 8s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0; }
+      50% { transform: translateY(-100px) rotate(180deg); opacity: 0.3; }
+    }
+
+    /* Anchor offset so fixed navbar doesn't cover headings */
+    section { scroll-margin-top: 100px; }
+
+    /* ENHANCED NAVBAR */
+    .navbar { 
+      background: rgba(10, 10, 10, 0.95) !important;
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(0, 255, 136, 0.2);
+      transition: all 0.3s ease;
+    }
+    
+    .navbar.scrolled {
+      background: rgba(10, 10, 10, 0.98) !important;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    }
+
+    .navbar .nav-link { 
+      color: #ffffff; 
+      opacity: .9; 
+      position: relative;
+      transition: all 0.3s ease;
+      font-weight: 500;
+    }
+
+    .navbar .nav-link::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -5px;
+      left: 50%;
+      background: var(--brand-green);
+      transition: all 0.3s ease;
+      transform: translateX(-50%);
+    }
+    
+    .navbar .nav-link:hover, .navbar .nav-link:focus { 
+      opacity: 1; 
+      color: var(--brand-green);
+    }
+
+    .navbar .nav-link:hover::after {
+      width: 100%;
+    }
+
+    .navbar-brand {
+      font-weight: 700;
+      font-size: 1.5rem;
+      transition: all 0.3s ease;
+    }
+
+    .navbar-brand:hover {
+      transform: scale(1.05);
+    }
+
+    /* SPECTACULAR HERO */
+    .hero { 
+      background: url('assets/img/hero.jpg') center/cover fixed;
+      min-height: 100vh; 
+      display: grid; 
+      place-items: center; 
+      position: relative; 
+      color: #fff; 
+      text-align: center;
+    }
+
+    /* Reduced overlay on hero so the image is more visible */
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.15); /* reduced from 0.4 */
+    }
+
+    .hero::after { 
+      content: ""; 
+      position: absolute; 
+      inset: 0; 
+      background: linear-gradient(180deg, rgba(0,0,0,.55), rgba(0,0,0,.35)); /* slightly lighter gradient */
+    }
+
+    @keyframes shimmer {
+      0% { transform: translateX(-100%); }
+      100% { transform: translateX(100%); }
+    }
+
+    .hero-content { 
+      position: relative; 
+      z-index: 2; 
+      max-width: 1000px; 
+      padding: 0 1rem;
+    }
+    
+    .hero h1 { 
+      text-shadow: 0 4px 18px rgba(0,0,0,.6);
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 800;
+      margin-bottom: 2rem;
+      color: #ffffff;
+    }
+
+    @keyframes glow {
+      from { filter: drop-shadow(0 0 20px rgba(0,255,136,0.5)); }
+      to { filter: drop-shadow(0 0 30px rgba(0,255,136,0.8)); }
+    }
+    
+    .hero p { 
+      text-shadow: 0 2px 10px rgba(0,0,0,.7);
+      font-size: 1.3rem;
+      margin-bottom: 2rem;
+      opacity: 0;
+      animation: fadeInUp 1s ease 0.5s forwards;
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+    }
+
+    /* ENHANCED BUTTONS */
+    .btn-enhanced {
+      background: linear-gradient(135deg, var(--brand-green) 0%, var(--brand-green-dark) 100%);
+      border: none;
+      padding: 15px 40px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      border-radius: 50px;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      box-shadow: 0 8px 25px rgba(0, 255, 136, 0.2);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .btn-enhanced::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+      transition: all 0.5s ease;
+    }
+
+    .btn-enhanced:hover::before {
+      left: 100%;
+    }
+
+    .btn-enhanced:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 35px rgba(0, 255, 136, 0.3);
+    }
+
+    /* TRUST BADGE */
+    .trust-badge { 
+      background: linear-gradient(135deg, var(--brand-green) 0%, #00cc88 100%);
+      color: #000; 
+      padding: 1rem 2rem; 
+      border-radius: 50px; 
+      font-weight: 700; 
+      display: inline-flex; 
+      align-items: center; 
+      gap: .8rem;
+      box-shadow: 0 8px 25px rgba(0, 255, 136, 0.3);
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .trust-badge:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 35px rgba(0, 255, 136, 0.3);
+    }
+
+    /* GLASSMORPHISM CARDS */
+    .glass-card {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(15px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      padding: 2rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    }
+
+    .glass-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    /* ENHANCED FEATURE CARDS */
+    .feature-card { 
+      transition: all 0.4s ease;
+      background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);
+      backdrop-filter: blur(15px);
+      border-radius: 20px;
+      padding: 2rem;
+      border: 1px solid rgba(255,255,255,0.1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .feature-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(0,255,136,0.1), transparent);
+      transition: all 0.6s ease;
+    }
+
+    .feature-card:hover::before {
+      left: 100%;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-15px) scale(1.02);
+      box-shadow: 0 25px 60px rgba(0, 255, 136, 0.2);
+      background: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.1) 100%);
+    }
+
+    .feature-card .bs-icon { 
+      width: 70px; 
+      height: 70px; 
+      border-radius: 50%; 
+      display: inline-flex; 
+      align-items: center; 
+      justify-content: center;
+      margin-bottom: 1.5rem;
+      transition: all 0.3s ease;
+      position: relative;
+      z-index: 2;
+    }
+
+    .feature-card:hover .bs-icon {
+      transform: scale(1.1) rotate(5deg);
+    }
+
+    /* LEISTUNGEN SECTION */
+    #leistungen {
+      position: relative;
+      background: url('assets/img/hero.jpg') center/cover fixed;
+      color: #f8f9fa;
+      overflow: hidden;
+    }
+
+    /* subtle patterned overlay */
+    #leistungen::before { /* dark overlay for readability */
+      content: ""; position: absolute; inset: 0; background: rgba(0,0,0,.65); z-index: 0;
+    }
+    #leistungen::after { /* subtle gradient accent */
+      content: ""; position: absolute; inset: 0; background: radial-gradient(60% 60% at 10% 10%, rgba(40,167,69,.25), transparent 40%), radial-gradient(60% 60% at 90% 90%, rgba(40,167,69,.18), transparent 45%);
+      mix-blend-mode: screen; z-index: 0;
+    }
+
+    /* when the section receives the `visible` class, fade the image in */
+    #leistungen.visible::after {
+      opacity: 0.45; /* adjust to taste */
+      transform: scale(1);
+    }
+
+    #leistungen .container {
+      position: relative;
+      z-index: 1;
+    }
+
+    #leistungen h2,
+    #leistungen h3,
+    #leistungen p {
+      color: #ffffff !important;
+    }
+
+    /* SERVICE CARDS */
+    .service-card {
+      transition: all 0.4s ease;
+      background: rgba(255,255,255,0.06);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      padding: 2rem;
+      border: 1px solid rgba(0, 255, 136, 0.1);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: conic-gradient(from 0deg, transparent, var(--brand-green), transparent);
+      animation: rotate 6s linear infinite;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .service-card:hover::before {
+      opacity: 0.1;
+    }
+
+    @keyframes rotate {
+      to { transform: rotate(360deg); }
+    }
+
+    .service-card:hover {
+      transform: translateY(-15px);
+      box-shadow: 0 25px 60px rgba(0, 255, 136, 0.2);
+      border-color: var(--brand-green);
+    }
+
+    .service-card img {
+      transition: all 0.4s ease;
+    }
+
+    .service-card:hover img {
+      transform: scale(1.05);
+    }
+
+    /* GALLERY ENHANCEMENTS */
+    .gallery img, .gallery iframe {
+      transition: all 0.3s ease;
+      border-radius: 20px;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.02);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+    }
+
+    /* CONTACT FORM */
+    .contact-card {
+      background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 25px;
+      box-shadow: 0 15px 50px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+    }
+
+    .contact-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 25px 70px rgba(0, 0, 0, 0.15);
+    }
+
+    .form-control {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 15px;
+      backdrop-filter: blur(10px);
+      color: #333;
+      transition: all 0.3s ease;
+    }
+
+    .form-control:focus {
+      background: rgba(255, 255, 255, 0.2);
+      border-color: var(--brand-green);
+      box-shadow: 0 0 0 0.2rem rgba(0, 255, 136, 0.25);
+      transform: translateY(-2px);
+    }
+
+    /* Fly animation for Sendeing Button */
+
+    .drone-icon-wrapper {
+    position: relative;
+    display: inline-flex;
+    align-items: center;       /* vertically center icon */
+    justify-content: center;   /* horizontally center if needed */
+    vertical-align: middle;    /* align with text baseline */
+    }
+
+    .icon-tabler-drone {
+      display: block;
+    }
+
+    .drone-lines {
+      position: absolute;
+      right: 100%;
+      width: 0;
+      height: 2px;
+      background: currentColor;
+      box-shadow: -4px -4px currentColor, -4px 4px currentColor;
+      opacity: 0;
+      transition: all 0.3s ease;
+    }
+
+    .drone-send-btn:hover .drone-lines {
+      width: 12px;
+      opacity: 1;
+    }
+
+    .drone-send-btn:active .icon-tabler-drone {
+      transform: translateX(5px) translateY(-2px) rotate(-5deg);
+      transition: transform 0.3s ease;
+    }
+
+
+    
+    /* FOOTER */
+    footer {
+      background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    footer::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="dots" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="1" fill="%2300ff88" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23dots)"/></svg>');
+      z-index: 0;
+    }
+
+    footer .container {
+      position: relative;
+      z-index: 1;
+    }
+
+    footer .social-icons a { 
+      color: #ffffff; 
+      margin: 0 15px; 
+      font-size: 1.5rem; 
+      transition: all 0.3s ease;
+      display: inline-block;
+    }
+    
+    footer .social-icons a:hover { 
+      color: var(--brand-green);
+      transform: translateY(-5px) scale(1.2);
+    }
+
+    /* SCROLL ANIMATIONS */
+    [data-aos] {
+      opacity: 0;
+      transition-property: opacity, transform;
+    }
+
+    [data-aos].aos-animate {
+      opacity: 1;
+    }
+
+    /* RESPONSIVE IMPROVEMENTS */
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+      
+      .hero p {
+        font-size: 1.1rem;
+      }
+      
+      .btn-enhanced {
+        padding: 12px 30px;
+        font-size: 1rem;
+      }
+      
+      .feature-card, .service-card {
+        padding: 1.5rem;
+      }
+    }
+
+    /* Loading Overlay */
+    .loading-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 1;
+      transition: opacity 0.5s ease;
+    }
+
+    .loading-overlay.hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .loader {
+      width: 50px;
+      height: 50px;
+      border: 3px solid rgba(255,255,255,0.3);
+      border-top: 3px solid var(--brand-green);
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+  <!-- Loading Overlay -->
+  <div class="loading-overlay" id="loadingOverlay">
+    <div class="loader"></div>
+  </div>
+
+  <!-- Floating Particles -->
+  <div class="particles" id="particles"></div>
+
+  <!-- Enhanced Navbar -->
+  <nav class="navbar navbar-expand-md navbar-dark py-3 fixed-top" id="mainNavbar">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center" href="#" data-aos="fade-right">
+        <span class="bs-icon-sm bs-icon-rounded bs-icon-primary d-flex justify-content-center align-items-center me-2 bs-icon" style="background: var(--brand-green); color: #000;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icon-tabler-drone">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+            <path d="M10 10h4v4h-4z"></path>
+            <path d="M10 10l-3.5 -3.5"></path>
+            <path d="M9.96 6a3.5 3.5 0 1 0 -3.96 3.96"></path>
+            <path d="M14 10l3.5 -3.5"></path>
+            <path d="M18 9.96a3.5 3.5 0 1 0 -3.96 -3.96"></path>
+            <path d="M14 14l3.5 3.5"></path>
+            <path d="M14.04 18a3.5 3.5 0 1 0 3.96 -3.96"></path>
+            <path d="M10 14l-3.5 3.5"></path>
+            <path d="M6 14.04a3.5 3.5 0 1 0 3.96 3.96"></path>
+          </svg>
+        </span>
+        <span>skycine.de</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto" data-aos="fade-left">
+          <li class="nav-item"><a class="nav-link" href="#ueber-uns">Über mich</a></li>
+          <li class="nav-item"><a class="nav-link" href="#leistungen">Leistungen</a></li>
+          <li class="nav-item"><a class="nav-link" href="#projekte">Projekte</a></li>
+          <li class="nav-item"><a class="btn btn-enhanced ms-md-3" href="#kontakt">Kontakt</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Spectacular Hero Section -->
+  <section class="hero" id="hero">
+    <div class="hero-content">
+      <h1 class="fw-bold mb-4" data-aos="fade-up" data-aos-delay="200">Cinematische Luftaufnahmen in und um Hamburg für Ihr Projekt</h1>
+      <p class="mb-5" data-aos="fade-up" data-aos-delay="400">skycine.de liefert cinematische Erlebnisse aus der Luft – für Immobilien, Grundstücke, Events und mehr.</p>
+      <a href="#kontakt" class="btn btn-enhanced" data-aos="zoom-in" data-aos-delay="600">Jetzt Kontaktieren</a>
+    </div>
+  </section>
+
+  <!-- Enhanced Über uns -->
+  <section id="ueber-uns" class="py-5">
+    <div class="container">
+      <div class="row align-items-center g-5">
+        <div class="col-md-6" data-aos="fade-right">
+          <div class="glass-card">
+            <img src="assets/img/profile-picture-placeholder.jpg" alt="Über uns" class="img-fluid rounded-4 shadow-lg mx-auto d-block" style="max-width: 377px">
+          </div>
+        </div>
+        <div class="col-md-6" data-aos="fade-left">
+          <div class="glass-card">
+            <h2 class="mb-4" style="color: #fff;">Über mich</h2>
+            <p class="mb-4" style="color: #fff; opacity: 0.9;">Mit Leidenschaft für Drohnentechnik, Fotografie und Film erstelle ich individuelle Luftaufnahmen, die perfekt auf jedes Projekt zugeschnitten sind. Von der ersten Idee bis zur finalen Aufnahme kommt bei mir alles aus einer Hand – persönlich, flexibel und zuverlässig. </p> 
+            Ich bin versichert, zertifiziert und setze modernste Drohnentechnologie ein, um höchste Sicherheit und Qualität zu gewährleisten. So entstehen Aufnahmen, die nicht nur beeindrucken, sondern auch genau zu Ihren Anforderungen passen..</p>
+            <div class="trust-badge">
+              <svg width="20" height="20" fill="currentColor" class="bi bi-shield-check" viewBox="0 0 16 16">
+                <path d="M5.338 1.59a61.44 61.44 0 0 0-2.837.856.481.481 0 0 0-.328.39c-.554 4.157.726 7.19 2.253 9.188a10.725 10.725 0 0 0 2.287 2.233c.346.244.652.42.893.533.12.057.218.095.293.118a.55.55 0 0 0 .101.025.615.615 0 0 0 .1-.025c.076-.023.174-.061.294-.118.24-.113.547-.29.893-.533a10.726 10.726 0 0 0 2.287-2.233c1.527-1.997 2.807-5.031 2.253-9.188a.48.48 0 0 0-.328-.39c-.651-.213-1.75-.56-2.837-.855C9.552 1.29 8.531 1.067 8 1.067c-.53 0-1.552.223-2.662.524zM5.072.56C6.157.265 7.31 0 8 0s1.843.265 2.928.56c1.11.3 2.229.655 2.887.87a1.54 1.54 0 0 1 1.044 1.262c.596 4.477-.787 7.795-2.465 9.99a11.775 11.775 0 0 1-2.517 2.453 7.159 7.159 0 0 1-1.048.625c-.28.132-.581.24-.829.24s-.548-.108-.829-.24a7.158 7.158 0 0 1-1.048-.625 11.777 11.777 0 0 1-2.517-2.453C1.928 10.487.545 7.169 1.141 2.692A1.54 1.54 0 0 1 2.185 1.43 62.456 62.456 0 0 1 5.072.56z"/>
+                <path d="M10.854 5.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 7.793l2.646-2.647a.5.5 0 0 1 .708 0z"/>
+              </svg>
+              Versichert & zertifiziert
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Enhanced Leistungen -->
+  <section id="leistungen" class="py-5">
+    <div class="container">
+      <div class="row mb-5">
+        <div class="col-md-10 col-xl-8 text-center mx-auto">
+          <h2 class="mb-4" data-aos="fade-up">Leistungen</h2>
+          <p class="lead mb-4" data-aos="fade-up" data-aos-delay="100">skycine.de bietet atemberaubende Drohnenaufnahmen und Luftbilder in höchster Qualität – aus Hamburg für Hamburg und der umliegenden Region.</p>
+          <p data-aos="fade-up" data-aos-delay="200">Entstanden aus einer Leidenschaft für Fliegen, Fotografieren und Filmen, biete ich mit skycine.de beeindruckende Perspektiven, ob für Immobilien, Grundstücke, Unternehmensstandorte, besondere Orte oder Events – ganz unkompliziert und transparent. Perfekt für Immobilienpräsentationen, Marketing, Social Media oder einfach unvergessliche Erinnerungen! Mit Begeisterung und Freude an der Arbeit, kann ich meine Leistungen zu fairen Preisen anbieten – günstiger als viele Mitbewerber, ohne Abstriche bei der Qualität zu machen.</p>
+        </div>
+      </div>
+      <div class="row gy-5 row-cols-1 row-cols-md-2 row-cols-xl-3">
+        <div class="col" data-aos="zoom-in">
+          <div class="service-card text-center">
+            <img class="img-fluid mb-4" alt="Immobilien Luftaufnahme" src="assets/img/pexels-photo-13570415.jpeg" style="width: 100%; height: 220px; object-fit: cover; border-radius: 15px;">
+            <h3 class="mb-3">Immobilien</h3>
+            <p>Präsentieren Sie Ihre Immobilie aus der besten Perspektive. Drohnenaufnahmen von skycine.de zeigen Architektur, Lage und Umgebung in eindrucksvollen Bildern – ideal für Verkauf, Vermietung oder Imagepflege.</p>
+          </div>
+        </div>
+        <div class="col" data-aos="zoom-in" data-aos-delay="100">
+          <div class="service-card text-center">
+            <img class="img-fluid mb-4" alt="Grundstücke Luftaufnahme" src="assets/img/photo-1639461423849-7359f5b141d8.jpg" style="width: 100%; height: 220px; object-fit: cover; border-radius: 15px;">
+            <h3 class="mb-3">Grundstücke</h3>
+            <p>Ob Baugrundstück oder weitläufiges Areal – skycine.de liefert klare, detailreiche Luftbilder, die Lage, Größe und Besonderheiten optimal darstellen. Perfekt für Investoren, Käufer und Planungen.
+          </div>
+        </div>
+        <div class="col" data-aos="zoom-in" data-aos-delay="200">
+          <div class="service-card text-center">
+            <img class="img-fluid mb-4" alt="Event Luftaufnahme" src="assets/img/photo-1748958342389-af6f109321d7.jpg" style="width: 100%; height: 220px; object-fit: cover; border-radius: 15px;">
+            <h3 class="mb-3">Events</h3>
+            <p>Halten Sie besondere Momente aus der Luft fest! Von Firmenevents bis zu privaten Feiern und Veranstaltungen – skycine.de Aufnahmen fangen Atmosphäre und Highlights spektakulär ein.</p>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Enhanced Features Section -->
+  <section class="py-5">
+    <div class="container">
+      <div class="row gy-5 row-cols-1 row-cols-md-2 row-cols-xl-4">
+        <div class="col" data-aos="fade-up">
+          <div class="feature-card text-center">
+            <div class="bs-icon bs-icon-lg" style="background: linear-gradient(135deg, #dc3545, #c82333); color:#fff;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16" class="bi bi-camera-video">
+                <path fill-rule="evenodd" d="M0 5a2 2 0 0 1 2-2h7.5a2 2 0 0 1 1.983 1.738l3.11-1.382A1 1 0 0 1 16 4.269v7.462a1 1 0 0 1-1.406.913l-3.111-1.382A2 2 0 0 1 9.5 13H2a2 2 0 0 1-2-2zm11.5 5.175 3.5 1.556V4.269l-3.5 1.556zM2 4a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h7.5a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1z"/>
+              </svg>
+            </div>
+            <h4 class="fw-bold mb-3" style="color: #fff;">4K Ultra HD</h4>
+            <p class="mb-0" style="color: rgba(255,255,255,0.9);">Wir produzieren gestochen scharfe Luftbilder und Videos in 4k Ultra-HD (4K – 3840×2160). So erhalten Sie maximale Detailtiefe und Brillanz für Ihre Fotos und Videos.</p>
+          </div>
+        </div>
+        <div class="col" data-aos="fade-up" data-aos-delay="100">
+          <div class="feature-card text-center">
+            <div class="bs-icon bs-icon-lg" style="background: linear-gradient(135deg, #28a745, #20c997); color:#fff;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16" class="bi bi-magic">
+                <path d="M9.5 2.672a.5.5 0 1 0 1 0V.843a.5.5 0 0 0-1 0v1.829Zm4.5.035A.5.5 0 0 0 13.293 2L12 3.293a.5.5 0 1 0 .707.707zM7.293 4A.5.5 0 1 0 8 3.293L6.707 2A.5.5 0 0 0 6 2.707zm-.621 2.5a.5.5 0 1 0 0-1H4.843a.5.5 0 1 0 0 1zm8.485 0a.5.5 0 1 0 0-1h-1.829a.5.5 0 0 0 0 1zM13.293 10A.5.5 0 1 0 14 9.293L12.707 8a.5.5 0 1 0-.707.707zM9.5 11.157a.5.5 0 0 0 1 0V9.328a.5.5 0 0 0-1 0zm1.854-5.097a.5.5 0 0 0 0-.706l-.708-.708a.5.5 0 0 0-.707 0L8.646 5.94a.5.5 0 0 0 0 .707l.708.708a.5.5 0 0 0 .707 0l1.293-1.293Zm-3 3a.5.5 0 0 0 0-.706l-.708-.708a.5.5 0 0 0-.707 0L.646 13.94a.5.5 0 0 0 0 .707l.708.708a.5.5 0 0 0 .707 0z"/>
+              </svg>
+            </div>
+            <h4 class="fw-bold mb-3" style="color: #fff;">Nachbearbeitung</h4>
+            <p class="mb-0" style="color: rgba(255,255,255,0.9);">Nach der Aufnahme beginnt der Feinschliff: Wir optimieren Farben, Kontraste & Co., um aus jedem Bild und Video das Beste herauszuholen – für ein Ergebnis, das begeistert.</p>
+          </div>
+        </div>
+        <div class="col" data-aos="fade-up" data-aos-delay="200">
+          <div class="feature-card text-center">
+            <div class="bs-icon bs-icon-lg" style="background: linear-gradient(135deg, #0dcaf0, #0bb3d8); color:#000;">
+              <i class="icon-social-youtube"></i>
+            </div>
+            <h4 class="fw-bold mb-3" style="color: #fff;">Videoschnitt</h4>
+            <p class="mb-0" style="color: rgba(255,255,255,0.9);">Auf Wunsch veredeln wir Ihre Aufnahmen zu hochwertigen Cinematic-Videos – optimiert für Website, YouTube, Instagram, etc. mit eindrucksvollen Übergängen und Musik.</p>
+          </div>
+        </div>
+        <div class="col" data-aos="fade-up" data-aos-delay="300">
+          <div class="feature-card text-center">
+            <div class="bs-icon bs-icon-lg" style="background: linear-gradient(135deg, #ffc107, #fd7e14); color:#000;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16" class="bi bi-hand-thumbs-up">
+                <path d="M8.864.046C7.908-.193 7.02.53 6.956 1.466c-.072 1.051-.23 2.016-.428 2.59-.125.36-.479 1.013-1.04 1.639-.557.623-1.282 1.178-2.131 1.41C2.685 7.288 2 7.87 2 8.72v4.001c0 .845.682 1.464 1.448 1.545 1.07.114 1.564.415 2.068.723l.048.03c.272.165.578.348.97.484.397.136.861.217 1.466.217h3.5c.937 0 1.599-.477 1.934-1.064a1.86 1.86 0 0 0 .254-.912c0-.152-.023-.312-.077-.464.201-.263.38-.578.488-.901.11-.33.172-.762.004-1.149.069-.13.12-.269.159-.403.077-.27.113-.568.113-.857 0-.288-.036-.585-.113-.856a2.144 2.144 0 0 0-.138-.362 1.9 1.9 0 0 0 .234-1.734c-.206-.592-.682-1.1-1.2-1.272-.847-.282-1.803-.276-2.516-.211a9.84 9.84 0 0 0-.443.05 9.365 9.365 0 0 0-.062-4.509A1.38 1.38 0 0 0 9.125.111zM11.5 14.721H8c-.51 0-.863-.069-1.14-.164-.281-.097-.506-.228-.776-.393l-.04-.024c-.555-.339-1.198-.731-2.49-.868-.333-.036-.554-.29-.554-.55V8.72c0-.254.226-.543.62-.65 1.095-.3 1.977-.996 2.614-1.708.635-.71 1.064-1.475 1.238-1.978.243-.7.407-1.768.482-2.85.025-.362.36-.594.667-.518l.262.066c.16.04.258.143.288.255a8.34 8.34 0 0 1-.145 4.725.5.5 0 0 0 .595.644l.003-.001.014-.003.058-.014a8.908 8.908 0 0 1 1.036-.157c.663-.06 1.457-.054 2.11.164.175.058.45.3.57.65.107.308.087.67-.266 1.022l-.353.353.353.354c.043.043.105.141.154.315.048.167.075.37.075.581 0 .212-.027.414-.075.582-.05.174-.111.272-.154.315l-.353.353.353.354c.006.005.041.05.041.17a.866.866 0 0 1-.121.416c-.165.288-.503.56-1.066.56z"/>
+              </svg>
+            </div>
+            <h4 class="fw-bold mb-3" style="color: #fff;">Zufriedenheitsgarantie</h4>
+            <p class="mb-0" style="color: rgba(255,255,255,0.9);">Ihre Zufriedenheit steht an erster Stelle: Wir arbeiten und optimieren Ihren Aufnahmen so lange, bis das Ergebnis Ihren Vorstellungen entspricht – garantiert!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Enhanced Projects Gallery -->
+  <section id="projekte" class="py-5">
+    <div class="container">
+      <div class="row mb-5">
+        <div class="col-md-10 col-xl-8 text-center mx-auto">
+          <h2 class="mb-4" style="color: #fff;" data-aos="fade-up">Projekte & Inspirationen</h2>
+          <p style="color: rgba(255,255,255,0.9);" data-aos="fade-up" data-aos-delay="100">Ein Bild sagt mehr als tausend Worte: In unserer Projektauswahl zeigen wir Ihnen einige vergangenen Aufträge sowie verschiedene Beispielaufnahmen. Lassen Sie sich inspirieren und entdecken Sie, wie vielseitig Drohnen im Einsatz sind.</p>
+        </div>
+      </div>
+      <div class="row gy-4 gallery">
+        <div class="col-12" data-aos="zoom-in">
+          <div class="glass-card p-3">
+            <a href="assets/img/DJI_20250621203402_0027_D.jpg" class="glightbox" data-gallery="projects">
+              <img src="assets/img/DJI_20250621203402_0027_D.jpg" alt="Projektfoto DJI" class="img-fluid shadow-lg" style="border-radius: 15px;">
+            </a>
+          </div>
+        </div>
+        <div class="col-12 col-md-6" data-aos="zoom-in" data-aos-delay="100">
+          <div class="glass-card p-3">
+            <div class="ratio ratio-16x9 rounded overflow-hidden shadow-lg">
+              <iframe src="https://www.youtube.com/embed/cx3RKukiojM" title="YouTube Video 1" allowfullscreen style="border-radius: 15px;"></iframe>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-6" data-aos="zoom-in" data-aos-delay="200">
+          <div class="glass-card p-3">
+            <div class="ratio ratio-16x9 rounded overflow-hidden shadow-lg">
+              <iframe src="https://www.youtube.com/embed/DLVguqZ4JRk" title="YouTube Video 2" allowfullscreen style="border-radius: 15px;"></iframe>
+            </div>
+          </div>
+        </div>
+        <div class="col-12" data-aos="zoom-in">
+          <div class="glass-card p-3">
+            <a href="assets/img/Horner-Rennbahn.jpg" class="glightbox" data-gallery="projects">
+              <img src="assets/img/Horner-Rennbahn.jpg" alt="Projektfoto DJI 2" class="img-fluid shadow-lg" style="border-radius: 15px;">
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Enhanced Contact Section -->
+  <section id="kontakt" class="py-5">
+    <div class="container">
+      <div class="row d-flex justify-content-center">
+        <div class="col-md-8 col-lg-6 col-xl-5 col-xxl-4">
+          <div class="contact-card mb-5" data-aos="zoom-in">
+            <div class="card-body p-sm-5">
+              <h2 class="text-center mb-4" style="color: #fff;">Kontaktieren Sie uns</h2>
+              <p class="text-center mb-4" style="color: rgba(255,255,255,0.8);">Bereit für atemberaubende Luftaufnahmen? Kontaktieren Sie uns für ein unverbindliches Angebot!</p>
+              <form data-bss-recipient="e69e938ec6292617ecde5db0bcfea6a5">
+                <div class="mb-3">
+                  <input class="form-control" type="text" id="name-2" name="name" placeholder="Ihr Name" required>
+                </div>
+                <div class="mb-3">
+                  <input class="form-control" type="email" id="email-2" name="email" placeholder="Ihre E-Mail" required>
+                </div>
+                <div class="mb-3">
+                  <input class="form-control" type="tel" id="phone-2" name="phone" placeholder="Telefon (optional)">
+                </div>
+                <div class="mb-3">
+                  <select class="form-control" name="service" required>
+                    <option value="">Art der Aufnahme wählen</option>
+                    <option value="immobilien">Immobilien</option>
+                    <option value="grundstuecke">Grundstücke</option>
+                    <option value="events">Events</option>
+                    <option value="sonstiges">Sonstiges</option>
+                  </select>
+                </div>
+                <div class="mb-4">
+                  <textarea class="form-control" id="message-2" name="message" rows="6" placeholder="Beschreiben Sie Ihr Projekt..." minlength="10"></textarea>
+                </div>
+                <div>
+                  <button class="btn btn-enhanced w-100 drone-send-btn" type="submit">
+                    <span class="drone-icon-wrapper me-2">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                          viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
+                          fill="none" stroke-linecap="round" stroke-linejoin="round"
+                          class="icon icon-tabler icon-tabler-drone">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                        <path d="M10 10h4v4h-4z"></path>
+                        <path d="M10 10l-3.5 -3.5"></path>
+                        <path d="M9.96 6a3.5 3.5 0 1 0 -3.96 3.96"></path>
+                        <path d="M14 10l3.5 -3.5"></path>
+                        <path d="M18 9.96a3.5 3.5 0 1 0 -3.96 -3.96"></path>
+                        <path d="M14 14l3.5 3.5"></path>
+                        <path d="M14.04 18a3.5 3.5 0 1 0 3.96 -3.96"></path>
+                        <path d="M10 14l-3.5 3.5"></path>
+                        <path d="M6 14.04a3.5 3.5 0 1 0 3.96 3.96"></path>
+                      </svg>
+                      <span class="drone-lines"></span>
+                    </span>
+                    Nachricht Senden
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Enhanced Footer -->
+  <footer class="text-center py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <!-- 
+          <div class="social-icons mb-4" data-aos="fade-up">
+            <a href="#" aria-label="Facebook">
+              <i class="icon-social-facebook"></i>
+            </a>
+            <a href="#" aria-label="Instagram">
+              <i class="icon-social-instagram"></i>
+            </a>
+            <a href="#" aria-label="YouTube">
+              <i class="icon-social-youtube"></i>
+            </a>
+          </div>
+          -->
+          <div class="mb-4" data-aos="fade-up" data-aos-delay="100">
+            <div class="d-flex justify-content-center flex-wrap gap-4">
+              <a class="text-white-50 text-decoration-none" href="impressum.html">Datenschutz</a>
+              <span class="text-white-50">|</span>
+              <a class="text-white-50 text-decoration-none" href="impressum.html">Impressum</a>
+              <span class="text-white-50">|</span>
+              <a class="text-white-50 text-decoration-none" href="#kontakt">Kontakt</a>
+            </div>
+          </div>
+          <p class="text-white-50 mb-0" data-aos="fade-up" data-aos-delay="200">
+            Copyright © 2025 skycine.de - Alle Rechte vorbehalten<br>
+            <small>Cinematische Drohnenaufnahmen aus Hamburg</small>
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/smart-forms.min.js"></script>
+  <script src="assets/js/bs-init.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
+  
+  <script>
+    // Initialize AOS with enhanced settings
+    AOS.init({ 
+      duration: 900, 
+      once: true,
+      offset: 50,
+      easing: 'ease-out-cubic'
+    });
+
+    // Initialize GLightbox
+    const lightbox = GLightbox({ 
+      selector: '.glightbox',
+      touchNavigation: true,
+      loop: true,
+      autoplayVideos: false
+    });
+
+    // Loading animation
+    window.addEventListener('load', function() {
+      setTimeout(() => {
+        document.getElementById('loadingOverlay').classList.add('hidden');
+      }, 800);
+    });
+
+    // Enhanced navbar scroll effect
+    const navbar = document.getElementById('mainNavbar');
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 100) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+
+    // Create floating particles
+    function createParticles() {
+      const particlesContainer = document.getElementById('particles');
+      const particleCount = 30;
+
+      for (let i = 0; i < particleCount; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'particle';
+        particle.style.left = Math.random() * 100 + '%';
+        particle.style.top = Math.random() * 100 + '%';
+        particle.style.animationDelay = Math.random() * 8 + 's';
+        particle.style.animationDuration = (6 + Math.random() * 4) + 's';
+        particlesContainer.appendChild(particle);
+      }
+    }
+
+    // Initialize particles
+    createParticles();
+
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // Form enhancement
+    const contactForm = document.querySelector('form');
+    if (contactForm) {
+      contactForm.addEventListener('submit', function(e) {
+        const submitBtn = this.querySelector('button[type="submit"]');
+        const originalText = submitBtn.innerHTML;
+        
+        submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span>Wird gesendet...';
+        submitBtn.disabled = true;
+        
+        // Re-enable after 3 seconds (for demo purposes)
+        setTimeout(() => {
+          submitBtn.innerHTML = originalText;
+          submitBtn.disabled = false;
+        }, 3000);
+      });
+    }
+
+    // Add hover sound effect (optional - requires audio file)
+    document.querySelectorAll('.btn-enhanced, .feature-card, .service-card').forEach(element => {
+      element.addEventListener('mouseenter', function() {
+        // Optional: Add subtle hover sound
+        // const audio = new Audio('assets/sounds/hover.mp3');
+        // audio.volume = 0.1;
+        // audio.play().catch(() => {});
+      });
+    });
+
+    // Parallax effect for hero section
+    let ticking = false;
+    window.addEventListener('scroll', function () {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        const y = window.pageYOffset;
+        const content = document.querySelector('.hero-content');
+        if (content) content.style.transform = `translateY(${y * 0.1}px)`;
+        ticking = false;
+      });
+    });
+
+    // Add dynamic title changes
+    let titleInterval;
+    const titles = [
+      'skycine.de - Cinematische Drohnenaufnahmen Hamburg',
+      'skycine.de - Professionelle Luftbilder & Videos',
+      'skycine.de - Ihr Partner für Drohnenaufnahmen',
+      'skycine.de - 4K Luftaufnahmen in Hamburg'
+    ];
+    
+    let titleIndex = 0;
+    
+    function rotateTitles() {
+      titleIndex = (titleIndex + 1) % titles.length;
+      document.title = titles[titleIndex];
+    }
+    
+    // Change title every 5 seconds when page is not active
+    document.addEventListener('visibilitychange', function() {
+      if (document.hidden) {
+        titleInterval = setInterval(rotateTitles, 5000);
+      } else {
+        clearInterval(titleInterval);
+        document.title = titles[0];
+      }
+    });
+
+    // Add typing effect to hero text (on mobile)
+    if (window.innerWidth < 768) {
+      const heroTitle = document.querySelector('.hero h1');
+      if (heroTitle) {
+        const text = heroTitle.textContent;
+        heroTitle.textContent = '';
+        heroTitle.style.borderRight = '2px solid var(--brand-green)';
+        
+        let i = 0;
+        function typeWriter() {
+          if (i < text.length) {
+            heroTitle.textContent += text.charAt(i);
+            i++;
+            setTimeout(typeWriter, 50);
+          } else {
+            heroTitle.style.borderRight = 'none';
+          }
+        }
+        
+        setTimeout(typeWriter, 1000);
+      }
+    }
+
+    // Reveal Leistungen background when section enters viewport
+    (function() {
+      const leist = document.getElementById('leistungen');
+      if (!leist) return;
+      const obs = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            leist.classList.add('visible');
+          } else {
+            leist.classList.remove('visible');
+          }
+        });
+      }, {threshold: 0.15});
+      obs.observe(leist);
+    })();
+  </script>
+</body>
+</html>
