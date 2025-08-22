@@ -4,20 +4,18 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>skycine.de - Cinematische Drohnenaufnahmen Hamburg</title>
-  <link rel="preload" href="assets/bootstrap/css/bootstrap.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Aleo:wght@300;400;500;600;700;800;900&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Aleo:wght@300;400;500;600;700;800;900&display=swap"></noscript>
   <link rel="stylesheet" href="assets/fonts/simple-line-icons.min.css">
   <link rel="stylesheet" href="assets/css/Navbar-Right-Links-icons.css">
-  <link rel="preload" href="assets/css/styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="stylesheet" href="assets/css/styles.css">
   <!-- AOS Animation Library -->
-  <link rel="preload" href="https://unpkg.com/aos@2.3.1/dist/aos.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css"></noscript>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <!-- GLightbox for gallery lightbox -->
-  <link rel="preload" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css"></noscript>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css"/>
   <style>
     :root {
       --brand-green: #00ff88;
@@ -29,7 +27,6 @@
       --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
       --gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
       --gradient-hero: linear-gradient(135deg, rgba(0,255,136,0.9) 0%, rgba(102,126,234,0.8) 100%);
-      --hero-bg: url('assets/img/hero.jpg');
     }
 
     * {
@@ -134,7 +131,7 @@
 
     /* SPECTACULAR HERO */
     .hero { 
-      background: var(--hero-bg) center/cover fixed;
+      background: url('assets/img/hero.jpg') center/cover fixed;
       min-height: 100vh; 
       display: grid; 
       place-items: center; 
@@ -329,7 +326,7 @@
     /* LEISTUNGEN SECTION */
     #leistungen {
       position: relative;
-      background: var(--hero-bg) center/cover fixed;
+      background: url('assets/img/hero.jpg') center/cover fixed;
       color: #f8f9fa;
       overflow: hidden;
     }
@@ -411,7 +408,7 @@
     /* PREISE SECTION */
     #preise {
       position: relative;
-      background: var(--hero-bg) center/cover fixed;
+      background: url('assets/img/hero.jpg') center/cover fixed;
       color: #f8f9fa;
       overflow: hidden;
     }
