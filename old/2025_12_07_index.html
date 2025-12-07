@@ -1203,14 +1203,11 @@
       autoplayVideos: false
     });
 
-    // Loading animation – so früh wie möglich weg mit dem Overlay
-    document.addEventListener('DOMContentLoaded', function () {
-    const overlay = document.getElementById('loadingOverlay');
-    if (!overlay) return;
-    // kleine Verzögerung, damit der Fade-out sichtbar bleibt
-    setTimeout(() => {
-        overlay.classList.add('hidden');
-    }, 200);
+    // Loading animation
+    window.addEventListener('load', function() {
+      setTimeout(() => {
+        document.getElementById('loadingOverlay').classList.add('hidden');
+      }, 800);
     });
 
     // Enhanced navbar scroll effect
